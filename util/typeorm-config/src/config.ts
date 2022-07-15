@@ -48,9 +48,10 @@ export function createOrmConfig(options?: OrmOptions): OrmConfig {
 
 function resolveModel(model?: string): string {
     model = path.resolve(model || 'lib/model')
+    console.log(model)
     try {
         return require.resolve(model)
-    } catch(e: any) {
+    } catch (e: any) {
         throw new Error(
             `Failed to resolve model ${model}. Did you forget to run codegen or compile the code?`
         )
